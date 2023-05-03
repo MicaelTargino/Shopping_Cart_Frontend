@@ -1,10 +1,35 @@
-# Getting Started with Create React App
+# Shooping Cart Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The frontend application to the Shooping_Cart_Backend repo.
+
+# What I learned 
+
+- Concept of frontend and backend being developed simultaneosly and separately
+- Concept of inserting security tokens to the backend API request.
+
+# Tecnologies used
+
+- React
+- Javascript
+- Html
+- Css
+
+## Deploy tecnologies
+
+- VPS
+- NGINX
+- UWSGI
+
+
+# Getting Started
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Install all the modules and packages needed for the application
 
 ### `npm start`
 
