@@ -15,9 +15,17 @@ export default class LoginComponent extends React.Component {
       }
     
       handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.username + ' password ' + this.state.password);
+        var url = 'http://127.0.0.1:8000/api-token-auth';
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: this.state.username, password: this.state.password })
+        };
+        fetch(url, requestOptions)
+          .then(response => response.json())
+          .then(data => localStorage.setItem('token', data.token));
         event.preventDefault();
-      }
+        }
 
       handleChangePassword(event) {
           this.setState({password: event.target.value})
