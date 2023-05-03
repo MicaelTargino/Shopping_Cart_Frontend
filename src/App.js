@@ -1,11 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import ListComponent from './ListComponent.js'
+import UserLists from './UserLists.js';
+
 
 function App() {
   return (
     <>
-      <ListComponent />
+      <UserLists />
     </>
   );
 }
