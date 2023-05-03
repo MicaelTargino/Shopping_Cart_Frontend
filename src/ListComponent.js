@@ -6,8 +6,7 @@ export default function ListComponent(props) {
         <>
         <h2>{props.name}</h2>
         <ul>
-            <ItemComponent name={'Item 1'} />
-            <ItemComponent name={'Item 2'} />
+            {props.items.map(item => <ItemComponent key={item.id} name={item.name} />)}
         </ul>
         </>
     )

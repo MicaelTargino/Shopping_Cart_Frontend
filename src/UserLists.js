@@ -2,7 +2,7 @@ import React from 'react';
 import ListComponent from './ListComponent';
 
 export default class UserLists extends React.Component {
-    state = { lists: null, loading: false }
+    state = { lists: [], loading: false }
     async componentDidMount() {
         const config = {
             headers: {
@@ -14,15 +14,15 @@ export default class UserLists extends React.Component {
 
         const response = await fetch(url, config);
         const data = await response.json();
-        console.log(data);
         this.setState({lists: data, loading: false});
     }
 
     render() {
+        const listsApi = this.state.lists;
         return (
             <>
-            <ListComponent name={'Minha Lista 1'} />
-            <ListComponent name={'Minha Lista 2'} />
+            {listsApi.map(list =><ListComponent key={list.id} name={list.name} items={list.item_set} /> )}
+           
             </>
         )
     }
