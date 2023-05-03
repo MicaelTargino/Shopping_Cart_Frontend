@@ -9,6 +9,7 @@ export default class LoginComponent extends React.Component {
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.logout = this.logout.bind(this);
       }
     
       handleChangeUsername(event) {
@@ -36,6 +37,11 @@ export default class LoginComponent extends React.Component {
           this.setState({password: event.target.value})
       }
 
+      logout() {
+        localStorage.removeItem('token');
+        this.setState({token: null});
+      }
+
 
     
       render() {
@@ -54,7 +60,10 @@ export default class LoginComponent extends React.Component {
           );
         } else {
           return (
+            <>
             <UserLists />
+            <button onClick={() => this.logout()}>Logout</button>
+            </>
           )
         }
        
