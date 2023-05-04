@@ -46,16 +46,15 @@ export default class LoginComponent extends React.Component {
     
       render() {
         var token = localStorage.getItem('token');
-
+        var styleForm = {display: 'flex', alignItems:'center', justifyContent:'center', flexDirection:'column'};
+        var stylebtn = {marginTop: '5px',border: 'none', padding: '5px 15px', background: '#a9cec4', borderRadius: '10px'}
         if(!token) {
           return (
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                Name:
-                <input type="text" value={this.state.username} onChange={this.handleChangeUsername} />
-                <input type="password" value={this.state.password} onChange={this.handleChangePassword} />
-              </label>
-              <input type="submit" value="Submit" />
+            <form style={styleForm} onSubmit={this.handleSubmit}>   
+              <h2 style={{color: 'white'}}>Login</h2>
+              <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleChangeUsername} />
+              <input placeholder="Password" type="password" value={this.state.password} onChange={this.handleChangePassword} />
+              <input style={stylebtn} type="submit" value="Submit" />
             </form>
           );
         } else {
